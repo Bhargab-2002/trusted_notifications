@@ -1,0 +1,249 @@
+/* GLOBAL */
+body {
+    background: #84b1ff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+}
+
+/* NAVBAR – gradient header */
+.navbar {
+    background: linear-gradient(95deg, #1a2b49, #253a66,#7dc2f7 );
+    padding: 14px 28px;
+}
+
+.navbar-brand {
+    color: #fcfafa !important;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 8px rgba(250, 252, 254, 0.25);
+}
+
+/* CARDS */
+.card {
+    border: none;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+    font-weight: 600;
+    color: #022552;
+}
+
+/* FORM CONTROLS */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #d4d8e3;
+    padding: 10px 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #3b6ef5;
+    box-shadow: 0 0 0 0.18rem rgba(59, 110, 245, 0.25);
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: #3b6ef5;
+    border-color: #3b6ef5;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 8px 18px;
+}
+
+.btn-primary:hover {
+    background: #2d59d6;
+    border-color: #2d59d6;
+}
+
+.btn-outline-danger {
+    border-radius: 8px;
+}
+
+/* TABLE */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead {
+    background: #e9edf8;
+}
+
+.table thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a2b49;
+}
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+/* BADGES */
+.badge {
+    font-size: 0.75rem;
+}
+
+.badge-success {
+    background-color: #2eba30 !important;
+}
+
+.badge-danger {
+    background-color: #e53935 !important;
+}
+
+.badge-secondary {
+    background-color: #757575 !important;
+}
+/* ============================= */
+/*          DARK MODE            */
+/* ============================= */
+
+body.dark-mode {
+    background: #0b1020;
+    color: #e4e7f5;
+}
+
+/* navbar in dark mode – slightly lighter gradient */
+body.dark-mode .navbar {
+    background: linear-gradient(90deg, #151b35, #222b4f, #3b6ef5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* brand text stays bright */
+body.dark-mode .navbar-brand {
+    color: #f5f7ff !important;
+}
+
+/* cards */
+body.dark-mode .card {
+    background: #151a2c;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+    border: 1px solid #252c43;
+}
+
+body.dark-mode .card-title {
+    color: #f5f7ff;
+}
+
+/* form controls */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #111628;
+    border-color: #2f3650;
+    color: #e4e7f5;
+}
+
+body.dark-mode .form-control::placeholder,
+body.dark-mode .form-select::placeholder {
+    color: #7e84a6;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    border-color: #6f9bff;
+    box-shadow: 0 0 0 0.18rem rgba(111, 155, 255, 0.35);
+}
+
+/* table */
+body.dark-mode .table thead {
+    background: #1c2238;
+}
+
+body.dark-mode .table thead th {
+    color: #cfd3ff;
+}
+
+body.dark-mode .table tbody tr {
+    border-color: #262d46;
+}
+
+body.dark-mode .table tbody td {
+    color: #e4e7f5;
+}
+
+/* links + buttons tweaks */
+body.dark-mode a {
+    color: #9bb4ff;
+}
+
+body.dark-mode a:hover {
+    color: #c3d3ff;
+}
+
+body.dark-mode .btn-outline-danger {
+    color: #ffb3c2;
+    border-color: #ff6b86;
+}
+
+/* dark mode toggle button */
+body.dark-mode #themeToggle {
+    background-color: #f5f7ff;
+    color: #121528;
+    border-color: transparent;
+}
+
+body.dark-mode #themeToggle:hover {
+    background-color: #dfe3ff;
+}
+/* Event Log heading + primary text in dark mode */
+body.dark-mode h5,
+body.dark-mode .card-title,
+body.dark-mode .text-primary {
+    color: #cfd3ff !important;   /* soft light blue */
+}
+/* Darker table rows in dark mode (Event Log) */
+body.dark-mode .table tbody tr:nth-child(odd) {
+    background-color: #14192b;
+}
+
+body.dark-mode .table tbody tr:nth-child(even) {
+    background-color: #181e34;
+}
+
+body.dark-mode .table tbody tr:hover {
+    background-color: #222a42;
+}
+
+/* make status badges pop on dark background */
+body.dark-mode .badge-success {
+    background-color: #3acb5a !important;
+}
+
+body.dark-mode .badge-danger {
+    background-color: #ff5c6a !important;
+}
+/* Darken the whole main area / containers */
+body.dark-mode main,
+body.dark-mode .container {
+    background-color: #0b1020;
+}
+
+/* Make all card bodies dark too */
+body.dark-mode .card-body {
+    background-color: #151a2c !important;
+}
+/* =======================================
+   FIX: Make ALL text bright in Dark Mode
+   ======================================= */
+
+body.dark-mode,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode td,
+body.dark-mode th,
+body.dark-mode li,
+body.dark-mode .form-label,
+body.dark-mode .text-muted,
+body.dark-mode .text-secondary,
+body.dark-mode .table,
+body.dark-mode .table td,
+body.dark-mode .table th {
+    color: #8595e6 !important;   /* light greyish white */
+}

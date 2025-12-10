@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Summary Analytics -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Summary Analytics</h5>
+        <p class="mb-1">Total Notifications: <strong>{{ total_notifications }}</strong></p>
+        <p class="mb-1">
+            Delivered: <strong>{{ delivered_count }}</strong> |
+            Failed: <strong>{{ failed_count }}</strong>
+        </p>
+        <p class="mb-0">
+            Channel Usage:
+            <strong>{{ channel_usage }}</strong>
+        </p>
+    </div>
+</div>
+
+<!-- Send Notification Form (included) -->
+{% include "send_notification.html" %}
+
+<!-- Event Log -->
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h5 class="mb-0">Event Log (Real-Time)</h5>
+    <a href="{{ url_for('main.clear_logs') }}" class="btn btn-outline-danger btn-sm">
+        Clear Event Logs
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body table-responsive">
+        <table class="table table-sm table-hover align-middle">
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Event Type</th>
+                <th scope="col">Message</th>
+                <th scope="col">Status</th>
+                <th scope="col">Final Channel / Attempts</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if logs %}
+                {% for log in logs %}
+                    <tr>
+                        <td>{{ log.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>{{ log.event_type }}</td>
+                        <td>{{ log.message }}</td>
+                        <td>
+                            {% if log.status == 'Delivered' %}
+                                <span class="badge bg-success">{{ log.status }}</span>
+                            {% elif log.status == 'Failed' %}
+                                <span class="badge bg-danger">{{ log.status }}</span>
+                            {% else %}
+                                <span class="badge bg-secondary">{{ log.status }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ log.final_channel_summary }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">
+                        No notifications yet. Send one using the form above.
+                    </td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

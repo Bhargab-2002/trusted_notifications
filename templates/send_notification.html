@@ -1,0 +1,48 @@
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Send Notification</h5>
+
+        <form method="post" action="{{ url_for('main.dashboard') }}">
+            <div class="mb-3">
+                <label for="event_type" class="form-label">Choose Event Type</label>
+                <select class="form-select" id="event_type" name="event_type" required>
+                    <option value="">-- Select Event --</option>
+                    <option>Beneficiary Added Alert</option>
+                    <option>Fraud Alert</option>
+                    <option>Login OTP</option>
+                    <option>Transaction OTP</option>
+                    <option>KYC Reminder</option>
+                    <option>Monthly Statement</option>
+                    <option>Low Balance Alert</option>
+                    <option>Reward Points Update</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number (SMS)</label>
+                <input type="text" class="form-control" id="phone" name="phone"
+                       placeholder="9999988888">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email (Email Fallback)</label>
+                <input type="email" class="form-control" id="email" name="email"
+                       placeholder="user@test.com">
+            </div>
+
+            <div class="mb-3">
+                <label for="device_token" class="form-label">Device Token (Push)</label>
+                <input type="text" class="form-control" id="device_token"
+                       name="device_token" placeholder="x-device">
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="2"
+                          placeholder="Your OTP is 123456" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Notification</button>
+        </form>
+    </div>
+</div>
